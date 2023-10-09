@@ -1,68 +1,62 @@
-class ConversionNotPossible(Exception):
-    pass
+"""
+    Part I ­ Create Tests for Celsius Conversion returns 0.0.
+"""
 
 
-def conversion(fromUnit, toUnit, value):
+def convertCelsiusToKelvin(celsius):
+    """Takes in a float representing a Celsius measurement, and returns that temperature converted into Kelvins"""
+    kelvins = celsius + 273.15
+    kelvins = 0
+
+    return kelvins
+
+
+def convertCelsiusToFahrenheit(celsius):
+    """Takes in a float representing a Celsius measurement, and returns that temperature converted into Fahrenheit"""
+    fahrenheit = celsius * (9 / 5) + 32
+    fahrenheit = 0
+
+    return fahrenheit
+
     """
-    Converts a value from one unit to another.
-
-    :param value: The value to be converted.
-    :param from_unit: The unit to convert from (e.g., "Celsius" or "Miles").
-    :param to_unit: The unit to convert to (e.g., "Kelvin" or "Yards").
-    :return: The converted value as a float.
-    :raises ConversionNotPossible: If the conversion is not supported.
+    Part II ­ Implement the Celsius Conversion Functions
     """
-    fromUnit = fromUnit.lower()
-    toUnit = toUnit.lower()
+    # converting form celsius
 
-    if fromUnit == toUnit:
-        value = float(value)
-        return value
 
-    if fromUnit == "celsius":
-        if toUnit == "kelvins":
-            value = value + 273.15
-            return float(value)
+def convertCelsiusToKelvin_1(celsius):
+    """Takes in  Celsius measurement, and returns  temperature converted into Kelvins"""
+    kelvins = celsius + 273.15
 
-        elif toUnit == "fahrenheit":
-            return float(value * (9 / 5) + 32)
+    return kelvins
 
-    elif fromUnit == "kelvins":
-        if toUnit == "celsius":
-            value = float(value - 273.15)
-            return value
 
-        elif toUnit == "fahrenheit":
-            return float(value * (9 / 5) - 459.67)
+def convertCelsiusToFahrenheit_1(celsius):
+    """Takes in  a Celsius measurement, and returns  temperature converted into Fahrenheit"""
+    fahrenheit = celsius * (9 / 5) + 32
 
-    elif fromUnit == "fahrenheit":
-        if toUnit == "celsius":
-            return float((value - 32) * 5 / 9)
+    return fahrenheit
 
-        if toUnit == "kelvins":
-            return float((value + 459.67) * 5 / 9)
-    # Distance conversions
-    if fromUnit == "miles":
-        if toUnit == "yards":
-            return float(value * 1760)
+    # converting from kelvins
 
-        elif toUnit == "meters":
-            return float(value * 1609.34)
 
-    elif fromUnit == "yards":
-        if toUnit == "miles":
-            return float(value / 1760)
+def convertKelvinsToCelsius(kelvins):
+    celsius = kelvins - 273.15
+    return celsius
 
-        elif toUnit == "meters":
-            return float(value * 0.9144)
 
-    elif fromUnit == "meters":
-        if toUnit == "miles":
-            return value / 1609.34
+def convertKelvinsToFahrenheit(kelvins):
+    fahrenheit = kelvins * (9 / 5) - 459.67
+    return fahrenheit
 
-        elif toUnit == "yards":
-            return float(value / 0.9144)
+    # converting from fahrenheit
 
-    raise ConversionNotPossible(
-        "Conversion from {} to {} is not supported.".format(fromUnit, toUnit)
-    )
+
+def converFahrenheitToCelcius(fahrenheit):
+    celsius = (fahrenheit - 32) * 5 / 9
+    return celsius
+
+
+def convertFahrenheitToKelvins(fahrenheit):
+    kelvins = (fahrenheit + 459.67) * 5 / 9
+    return kelvins
